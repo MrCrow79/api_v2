@@ -28,41 +28,21 @@ class ApiMethodsAndProperties:
     def url(self):
         return self._url
 
-    @url.setter
-    def url(self, value):
-        raise ValueError('You can\'t change url for this api - {0}'.format(self._url))
-
     @property
     def type(self):
         return self._type
-
-    @type.setter
-    def type(self, value):
-        raise ValueError('You can\'t change api type')
 
     @property
     def required_params(self):
         return self._required_params
 
-    @required_params.setter
-    def required_params(self, value):
-        raise ValueError('You can\'t change api required_params')
-
     @property
     def full_url(self):
         return self._full_url
 
-    @full_url.setter
-    def full_url(self, value):
-        raise ValueError('You can\'t set full_url, use ApiMethodsAndProperties.set_params for this')
-
     @property
     def error_page(self):
         return self._error_page
-
-    @error_page.setter
-    def error_page(self, value):
-        raise ValueError('You can\'t change error_page')
 
     @staticmethod
     def set_params(api_instance,  new_params):

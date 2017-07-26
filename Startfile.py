@@ -60,6 +60,6 @@ class StartTests:
 
 # cherrypy.quickstart(StartTests())
 
-#smoke = StartTests().run_tests('smoke')
-#model = StartTests().run_tests('model')
+smoke = StartTests().run_tests('smoke')
+model = StartTests().run_tests('model')
 data = StartTests().run_tests('data')
