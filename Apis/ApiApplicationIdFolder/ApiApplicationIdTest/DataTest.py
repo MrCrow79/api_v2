@@ -8,7 +8,6 @@ class ApplicationIdCheckData(unittest.TestCase):
 
     def setUp(self):
         self.current_api = ApiApplicationId()
-        logger(type=self.current_api.type, full_url=self.current_api.full_url)
 
     def tearDown(self):
         pass
@@ -20,10 +19,9 @@ class ApplicationIdCheckData(unittest.TestCase):
 
         self.check_current_api = CheckApiApplicationId(self.current_api)
 
-        logger(type=self.current_api.type, full_url=self.current_api.full_url,
-               no_response_errors=self.current_api.no_response_errors)
-
-        assert self.current_api.no_response_errors is True
+        assert self.current_api.no_response_errors, "{0}\n{1}\n{2}".format(self.current_api.response_code,
+                                                                           self.current_api.full_url,
+                                                                           self.current_api.response_error)
 
     def test_application_id_app_is_36(self):
         self.current_api.full_url = 36
@@ -32,10 +30,9 @@ class ApplicationIdCheckData(unittest.TestCase):
 
         self.check_api_application_id = CheckApiApplicationId(self.current_api)
 
-        logger(type=self.current_api.type, full_url=self.current_api.full_url,
-               no_response_errors=self.current_api.no_response_errors)
-
-        assert self.current_api.no_response_errors is True
+        assert self.current_api.no_response_errors, "{0}\n{1}\n{2}".format(self.current_api.response_code,
+                                                                           self.current_api.full_url,
+                                                                           self.current_api.response_error)
 
     def test_application_id_app_is_asd(self):
         self.current_api.full_url = 'asd'
@@ -44,7 +41,6 @@ class ApplicationIdCheckData(unittest.TestCase):
 
         self.check_api_application_id = CheckApiApplicationId(self.current_api)
 
-        logger(type=self.current_api.type, full_url=self.current_api.full_url,
-               no_response_errors=self.current_api.no_response_errors)
-
-        assert self.current_api.no_response_errors
+        assert self.current_api.no_response_errors, "{0}\n{1}\n{2}".format(self.current_api.response_code,
+                                                                           self.current_api.full_url,
+                                                                           self.current_api.response_error)
