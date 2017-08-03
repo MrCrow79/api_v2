@@ -86,13 +86,26 @@ class ApiMethodsAndProperties:
                                         ''.format(ApiMethodsAndProperties()._error_page)
             # print(api_instance.full_url, 'has error. server return typical error html page')
         elif api_instance.response_code in range(200, 400):
-            api_instance.response_data = json.loads(api_instance.response_data)
+            try:
+                api_instance.response_data = json.loads(api_instance.response_data)
+            except json.JSONDecodeError:
+                api_instance.response_data = api_instance.response_data
             api_instance.no_response_errors = True
         else:
             api_instance.response_error = api_instance.response_data
             # print('ERROR: code = {0}, api = {1}'.format(api_instance.response_code, api_instance.full_url))
 
 
+class DataForCheckApi:
+    def __init__(self, instance):
+        self.no_response_errors = instance.no_response_errors
+        self.response_data = instance.response_data
+        self.response_code = instance.response_code
+        self.full_url = instance.full_url
+        self.url = instance.url
+        self.check_data_no_errors = False
+        self.check_net_no_error = False
+        self.check_app_no_error = False
 
 
 
