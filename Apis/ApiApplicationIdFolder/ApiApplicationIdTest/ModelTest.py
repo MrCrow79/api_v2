@@ -1,7 +1,6 @@
 import unittest
 
 from Apis.ApiApplicationIdFolder.ApiApplicationIdFile import *
-from Apis.ApiApplicationIdFolder.ApiApplicationIdCheckMethods import *
 
 
 class ApplicationIdModel(unittest.TestCase):
@@ -17,6 +16,6 @@ class ApplicationIdModel(unittest.TestCase):
         logger(type=self.current_api.type, full_url=self.current_api.full_url, params=self.current_api.params,
                no_response_errors=self.current_api.no_response_errors,
                check_data_no_errors=self.check_current_api.check_data_no_errors)
-        self.check_current_api.check_model()
+        self.current_api.check_model()
 
 
